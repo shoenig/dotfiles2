@@ -10,11 +10,8 @@ alias rm='rm --interactive'
 alias ls='ls --color'
 alias sl='ls --color'
 alias xclip='xclip -selection c'
-alias ec='emacsclient -t'
 alias gs='git status'
 alias diff='colordiff'
-alias in=inode
-alias dog='godep go'
 alias tree='tree -a'
 
 # bleh
