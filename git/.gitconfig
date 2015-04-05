@@ -7,15 +7,15 @@
 	user = shoenig
 	token = b4233617f1dac5a51ba4bd464bbbe6c0
 [alias]
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    type = cat-file -t
-    dump = cat-file -p
-    st = status
-    cout = checkout
-    co = checkout
-    df = diff
-    pullf = pull --ff-only
-    diffs = diff --cached
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	st = status
+	cout = checkout
+	co = checkout
+	df = diff
+	pullf = pull --ff-only
+	diffs = diff --cached
 [core]
 	editor = emacs
 	excludesfile = /home/seth/.gitignore
