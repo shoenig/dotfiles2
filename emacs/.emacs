@@ -73,6 +73,9 @@
 (set-face-foreground 'show-paren-mismatch-face "red")
 (set-face-attribute 'show-paren-mismatch-face nil
                     :weight 'bold :underline t :overline nil :slant 'normal)
+                    
+;; color theme
+(load-theme 'tango-dark)                    
 
 ;; ============ rapid switch between windows ===============
 (global-set-key (kbd "C-<up>") 'windmove-up)
