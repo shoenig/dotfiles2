@@ -1,3 +1,5 @@
+source /etc/bash_completion.d/git-prompt
+
 # go stuff (put in .profile  to make gocode work)
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/Documents/go
