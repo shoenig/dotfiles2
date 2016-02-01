@@ -5,7 +5,6 @@
 	email = seth.a.hoenig@gmail.com
 [github]
 	user = shoenig
-	token = b4233617f1dac5a51ba4bd464bbbe6c0
 [alias]
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	type = cat-file -t
