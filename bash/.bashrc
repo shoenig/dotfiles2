@@ -16,6 +16,11 @@ alias gs='git status'
 alias diff='colordiff'
 alias tree='tree -a'
 
+# more gnome-terminal colours (nice for emacs-nox)
+if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
+    export TERM=xterm-256color
+fi
+
 # bleh
 export PS1='[\[\033[0;35m\]$(hostname) \[\033[0;32m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[0;33m\]%s\[\033[0m\])")] $ '
 
