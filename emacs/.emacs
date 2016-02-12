@@ -93,8 +93,10 @@
 (global-set-key (kbd "C-<right>") 'windmove-right)
 (global-set-key (kbd "C-<left>") 'windmove-left)
 
+;; copy is now M-c
+(global-set-key (kbd "M-c") 'copy-region-as-kill)
+
 ;; aliases
 (defalias 'cr 'comment-region)
 (defalias 'uc 'uncomment-region)
 (defalias 'rs 'replace-string)
-
