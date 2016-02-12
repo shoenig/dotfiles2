@@ -92,3 +92,9 @@
 (global-set-key (kbd "C-<down>") 'windmove-down)
 (global-set-key (kbd "C-<right>") 'windmove-right)
 (global-set-key (kbd "C-<left>") 'windmove-left)
+
+;; aliases
+(defalias 'cr 'comment-region)
+(defalias 'uc 'uncomment-region)
+(defalias 'rs 'replace-string)
+
