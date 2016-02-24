@@ -88,13 +88,11 @@
 (load-theme 'tango-dark)                    
 
 ;; ============ rapid switch between windows ===============
-(global-set-key (kbd "C-<up>") 'windmove-up)
-(global-set-key (kbd "C-<down>") 'windmove-down)
-(global-set-key (kbd "C-<right>") 'windmove-right)
-(global-set-key (kbd "C-<left>") 'windmove-left)
+;; (global-set-key (kbd "C-<up>") 'windmove-up)
+;; (global-set-key (kbd "C-<down>") 'windmove-down)
+;; (global-set-key (kbd "C-<right>") 'windmove-right)
+;; (global-set-key (kbd "C-<left>") 'windmove-left)
 
-;; copy is now M-c
-(global-set-key (kbd "M-c") 'copy-region-as-kill)
 
 ;; aliases
 (defalias 'cr 'comment-region)
