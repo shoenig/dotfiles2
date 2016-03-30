@@ -59,7 +59,7 @@
 # cp -R dotfiles2-master/git/.g* $HOME/
 
 # Gnome Icons
-# sudo cp dotfiles2-master/icons/*.desktop /usr/share/applications/
+# sudo cp dotfiles2-master/gnome-icons/*.desktop /usr/share/applications/
 
 # ssh-keygen -t rsa -b 4096
 
