@@ -58,6 +58,9 @@
 # cp -R dotfiles2-master/bash/.b* $HOME/
 # cp -R dotfiles2-master/git/.g* $HOME/
 
+# Gnome Icons
+# sudo cp dotfiles2-master/icons/*.desktop /usr/share/applications/
+
 # ssh-keygen -t rsa -b 4096
 
 # echo COPY THIS KEY TO PLACES like github and eng-git
