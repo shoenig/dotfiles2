@@ -8,6 +8,8 @@
     { "key": "ctrl+3",                 "command": "workbench.action.focusThirdEditor" },
     { "key": "ctrl+[",                 "command": "workbench.action.focusLeftEditor" },
     { "key": "ctrl+]",                 "command": "workbench.action.focusRightEditor" },
+    { "key": "ctrl+left",              "command": "workbench.action.focusLeftEditor" },
+    { "key": "ctrl+right",             "command": "workbench.action.focusRightEditor" },
     { "key": "ctrl+f",                 "command": "actions.find" },
     { "key": "ctrl+c",                 "command": "editor.action.clipboardCopyAction", "when": "editorTextFocus" },
     { "key": "ctrl+x",                 "command": "editor.action.clipboardCutAction", "when": "editorTextFocus" },
