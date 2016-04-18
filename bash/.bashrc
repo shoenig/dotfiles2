@@ -15,6 +15,8 @@ alias xclip='xclip -selection c'
 alias gs='git status'
 alias diff='colordiff'
 alias tree='tree -a'
+alias tcover='go test -covermode=count -coverprofile=/tmp/cover.out && go tool cover -func=/tmp/cover.out'
+alias cover='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
 
 # more gnome-terminal colours (nice for emacs-nox)
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
