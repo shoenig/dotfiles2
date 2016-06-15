@@ -1,5 +1,6 @@
 // Place your key bindings in this file to overwrite the defaults
 [
+[
     { "key": "ctrl+s",                 "command": "workbench.action.files.save" },
     { "key": "ctrl+h",                 "command": "editor.action.startFindReplaceAction" },
     { "key": "ctrl+o",                 "command": "workbench.action.files.openFileFolder" },
@@ -10,19 +11,24 @@
     { "key": "ctrl+]",                 "command": "workbench.action.focusRightEditor" },
     { "key": "ctrl+left",              "command": "workbench.action.focusLeftEditor" },
     { "key": "ctrl+right",             "command": "workbench.action.focusRightEditor" },
-    { "key": "ctrl+f",                 "command": "actions.find" },
     { "key": "ctrl+c",                 "command": "editor.action.clipboardCopyAction", "when": "editorTextFocus" },
     { "key": "ctrl+x",                 "command": "editor.action.clipboardCutAction", "when": "editorTextFocus" },
     { "key": "ctrl+v",                 "command": "editor.action.clipboardPasteAction", "when": "editorTextFocus" },
     { "key": "ctrl+/",                 "command": "editor.action.commentLine", "when": "editorTextFocus"},
     { "key": "shift+ctrl+z",           "command": "redo", "when": "editorTextFocus" },
     { "key": "ctrl+z",                 "command": "undo", "when": "editorTextFocus" },
-    { "key": "f12",                     "command": "editor.action.goToDeclaration", "when": "editorTextFocus" },
-    { "key": "f11",                     "command": "workbench.action.navigateBack" },
+    { "key": "ctrl+=",                 "command": "editor.action.goToDeclaration", "when": "editorTextFocus" },
+    { "key": "ctrl+-",                 "command": "workbench.action.navigateBack" },
     { "key": "shift+ctrl+k",           "command": "editor.action.deleteLines", "when": "editorTextFocus" },
     
-    { "key": "ctrl+a",                   "command": "cursorHome", "when": "editorTextFocus" },
+    { "key": "alt+f",                 "command": "actions.find" },
+    { "key": "alt+h",                "command": "editor.action.startFindReplaceAction" },
+
+    { "key": "ctrl+f",                 "command": "cursorRight", "when": "editorTextFocus" },
+    { "key": "ctrl+b",                 "command": "cursorLeft", "when": "editorTextFocus" },
+    { "key": "ctrl+a",                 "command": "cursorHome", "when": "editorTextFocus" },
     { "key": "ctrl+e",                 "command": "cursorEnd", "when": "editorTextFocus" },
     { "key": "ctrl+p",                 "command": "cursorUp", "when": "editorTextFocus" },
     { "key": "ctrl+n",                 "command": "cursorDown", "when": "editorTextFocus" }
+]
 ]
