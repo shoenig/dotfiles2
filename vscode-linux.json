@@ -1,6 +1,5 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-[
     { "key": "ctrl+s",                 "command": "workbench.action.files.save" },
     { "key": "ctrl+h",                 "command": "editor.action.startFindReplaceAction" },
     { "key": "ctrl+o",                 "command": "workbench.action.files.openFileFolder" },
@@ -30,5 +29,4 @@
     { "key": "ctrl+e",                 "command": "cursorEnd", "when": "editorTextFocus" },
     { "key": "ctrl+p",                 "command": "cursorUp", "when": "editorTextFocus" },
     { "key": "ctrl+n",                 "command": "cursorDown", "when": "editorTextFocus" }
-]
 ]
