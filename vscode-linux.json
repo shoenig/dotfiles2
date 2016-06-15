@@ -23,6 +23,7 @@
     { "key": "alt+f",                 "command": "actions.find" },
     { "key": "alt+h",                "command": "editor.action.startFindReplaceAction" },
 
+    { "key": "ctrl+d",                 "command": "deleteRight", "when": "editorTextFocus" },
     { "key": "ctrl+f",                 "command": "cursorRight", "when": "editorTextFocus" },
     { "key": "ctrl+b",                 "command": "cursorLeft", "when": "editorTextFocus" },
     { "key": "ctrl+a",                 "command": "cursorHome", "when": "editorTextFocus" },
