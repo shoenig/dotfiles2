@@ -20,9 +20,12 @@
     { "key": "ctrl+-",                 "command": "workbench.action.navigateBack" },
     { "key": "shift+ctrl+k",           "command": "editor.action.deleteLines", "when": "editorTextFocus" },
     
-    { "key": "alt+f",                 "command": "actions.find" },
-    { "key": "alt+h",                "command": "editor.action.startFindReplaceAction" },
+    { "key": "alt+s",                  "command": "actions.find" },
+    { "key": "alt+h",                  "command": "editor.action.startFindReplaceAction" },
 
+    { "key": "alt+f",                  "command": "cursorWordRight", "when": "editorTextFocus" },
+    { "key": "alt+b",                  "command": "cursorWordLeft", "when": "editorTextFocus" },
+    { "key": "ctrl+k",                 "command": "deleteAllRight", "when": "editorTextFocus" },
     { "key": "ctrl+d",                 "command": "deleteRight", "when": "editorTextFocus" },
     { "key": "ctrl+f",                 "command": "cursorRight", "when": "editorTextFocus" },
     { "key": "ctrl+b",                 "command": "cursorLeft", "when": "editorTextFocus" },
