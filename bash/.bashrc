@@ -3,10 +3,11 @@ source /etc/bash_completion.d/git-prompt
 export EDITOR=/usr/bin/nano
 
 # go stuff (put in .profile  to make gocode work)
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/Documents/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=${PATH}:/usr/local/go/bin
+export GOPATH=${HOME}/go
+export PATH=${PATH}:${GOPATH}/bin
 export CDPATH=.:${GOPATH}/src/indeed/devops:${GOPATH}/src/indeed/gophers
+
 
 # -- Alias --
 alias mv='mv --interactive'
