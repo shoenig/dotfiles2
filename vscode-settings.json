@@ -1,0 +1,9 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "go.gopath": "/home/hoenig/golang",
+    "go.formatOnSave": true,
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
+    "window.zoomLevel": 1,
+    "explorer.autoReveal": false
+}
