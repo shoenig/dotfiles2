@@ -33,3 +33,10 @@ alias gs='git status'
 alias diff='colordiff'
 alias tree='tree -a'
 alias cover-html='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
+
+# -- Functions
+function docker-cleanup {
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+    docker volume rm $(docker volume ls -q -f 'dangling=true') 2>/dev/null
+}
