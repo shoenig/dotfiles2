@@ -33,6 +33,7 @@ alias gs='git status'
 alias diff='colordiff'
 alias tree='tree -a'
 alias cover-html='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
+alias authors='git log | grep "Author: " | cut -d" " -f2,3 | sort | uniq -c | sort -nr'
 
 # -- Functions
 function docker-cleanup {
