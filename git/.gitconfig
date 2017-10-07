@@ -2,7 +2,7 @@
 	ui = true
 [user]
 	name = Seth Hoenig
-	email = seth.a.hoenig@gmail.com
+	email = hoenig@indeed.com
 [github]
 	user = shoenig
 [alias]
@@ -16,9 +16,9 @@
 	pullf = pull --ff-only
 	diffs = diff --cached
 [core]
-	editor = emacs
-	excludesfile = /home/seth/.gitignore
+	editor = mg
+	excludesfile = /home/hoenig/.gitignore
 [merge]
-	tool = meld
+	tool = mg
 [push]
 	default = current
