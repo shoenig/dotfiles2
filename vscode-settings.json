@@ -2,5 +2,8 @@
 {
     "go.gopath": "/home/hoenig/Documents/go",
     "explorer.autoReveal": false,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "extensions.ignoreRecommendations": false,
+    "window.menuBarVisibility": "hidden",
+    "window.enableMenuBarMnemonics": false
 }
