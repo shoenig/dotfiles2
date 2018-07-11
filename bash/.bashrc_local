@@ -14,13 +14,15 @@ export EDITOR=/usr/bin/mg
 source /etc/bash_completion.d/git-prompt
 
 # -- Fancy prompt
-export PS1='[\[\033[0;35m\]$(hostname) \[\033[0;32m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[0;33m\]%s\[\033[0m\])")] $ '
+export PS1='[\[\033[0;37m\]$(hostname) \[\033[0;32m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[0;33m\]%s\[\033[0m\])")] $ '
 
 # -- Go stuff
-export PATH=${PATH}:/usr/local/go/bin
-export GOPATH=${HOME}/Documents/go
+export GOROOT=/opt/google/go
+export PATH=${PATH}:${GOROOT}/bin
+export GOPATH=${HOME}/go
 export PATH=${PATH}:${GOPATH}/bin
-export CDPATH=.:${GOPATH}/src/indeed/devops:${GOPATH}/src/indeed/gophers
+export CDPATH=.:${GOPATH}/src/indeed/systools:${GOPATH}/src/indeed/gophers:${GOPATH}/src/indeed/devops
+export MOCKERY_IMPORT_PREFIX=indeed/gophers/3rdparty/p/
 
 # -- Aliases
 alias mv='mv --interactive'
@@ -34,6 +36,7 @@ alias diff='colordiff'
 alias tree='tree -a'
 alias cover-html='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
 alias authors='git log | grep "Author: " | cut -d" " -f2,3 | sort | uniq -c | sort -nr'
+alias compose='/opt/docker/run.sh "${@}"'
 
 # -- Functions
 function docker-cleanup {
@@ -41,3 +44,4 @@ function docker-cleanup {
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
     docker volume rm $(docker volume ls -q -f 'dangling=true') 2>/dev/null
 }
+
