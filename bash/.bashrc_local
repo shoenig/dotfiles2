@@ -45,3 +45,13 @@ function docker-cleanup {
     docker volume rm $(docker volume ls -q -f 'dangling=true') 2>/dev/null
 }
 
+function iclone {
+    group="${1}"
+    project="${2}"
+    if [ -z "${group}" ]; then echo "format: 'iclone group project'" && return; fi
+    if [ -z "${project}" ]; then echo "format: 'iclone group project'" && return; fi
+    pushd ${GOPATH}/src/indeed/${group}
+    git clone "git@code.internal.com:${group}/${project}.git"
+    popd
+}
+
