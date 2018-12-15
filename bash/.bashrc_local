@@ -21,8 +21,10 @@ export GOROOT=/opt/google/go
 export PATH=${PATH}:${GOROOT}/bin
 export GOPATH=${HOME}/go
 export PATH=${PATH}:${GOPATH}/bin
-export CDPATH=.:${GOPATH}/src/indeed/systools:${GOPATH}/src/indeed/gophers:${GOPATH}/src/indeed/devops
-export MOCKERY_IMPORT_PREFIX=indeed/gophers/3rdparty/p/
+export CDPATH=.\
+:${GOPATH}/src/indeed/systools\
+:${GOPATH}/src/indeed/gophers\
+:${GOPATH}/src/github.com/modprox
 
 # -- Aliases
 alias mv='mv --interactive'
@@ -37,6 +39,7 @@ alias tree='tree -a'
 alias cover-html='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
 alias authors='git log | grep "Author: " | cut -d" " -f2,3 | sort | uniq -c | sort -nr'
 alias compose='/opt/docker/run.sh "${@}"'
+alias lvtail='${GOPATH}/bin/logvis-tail --env prod --backend kafka ${@}'
 
 # -- Functions
 function docker-cleanup {
@@ -53,5 +56,10 @@ function iclone {
     pushd ${GOPATH}/src/indeed/${group}
     git clone "git@code.internal.com:${group}/${project}.git"
     popd
+}
+
+function power {
+    pct=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}')
+    echo ${pct}
 }
 
