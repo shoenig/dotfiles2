@@ -63,3 +63,6 @@ function power {
     echo ${pct}
 }
 
+function temp {
+    python -c "import sys; t = sys.argv[1]; print int(t)/1000" $(cat /sys/class/thermal/thermal_zone*/temp)
+}
