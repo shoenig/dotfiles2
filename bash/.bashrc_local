@@ -48,6 +48,10 @@ function docker-cleanup {
     docker volume rm $(docker volume ls -q -f 'dangling=true') 2>/dev/null
 }
 
+function docker-ps {
+    docker ps -a --format "{{.Names}}\t{{.Status}}\t{{.Image}}"
+}
+
 function iclone {
     group="${1}"
     project="${2}"
