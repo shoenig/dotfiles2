@@ -70,3 +70,9 @@ function power {
 function temp {
     python -c "import sys; t = sys.argv[1]; print int(t)/1000" $(cat /sys/class/thermal/thermal_zone*/temp)
 }
+
+function set-upstream {
+    b=$(git rev-parse --abbrev-ref HEAD)
+    git branch --set-upstream-to="origin/${b}" "${b}"
+    echo "set upstream to origin/${b}"
+}
