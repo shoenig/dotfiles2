@@ -40,6 +40,7 @@ alias cover-html='go test -coverprofile=/tmp/cover.out && go tool cover -html=/t
 alias authors='git log | grep "Author: " | cut -d" " -f2,3 | sort | uniq -c | sort -nr'
 alias compose='/opt/docker/run.sh "${@}"'
 alias lvtail='${GOPATH}/bin/logvis-tail --env prod --backend kafka ${@}'
+alias tree='tree -I .git ${@}'
 
 # -- Functions
 function docker-cleanup {
