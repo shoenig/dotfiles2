@@ -1,9 +1,0 @@
-// Place your settings in this file to overwrite the default settings
-{
-    "go.gopath": "/home/hoenig/Documents/go",
-    "explorer.autoReveal": false,
-    "editor.minimap.enabled": false,
-    "extensions.ignoreRecommendations": false,
-    "window.menuBarVisibility": "hidden",
-    "window.enableMenuBarMnemonics": false
-}
