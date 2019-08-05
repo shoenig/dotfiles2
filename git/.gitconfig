@@ -15,6 +15,7 @@
 	df = diff
 	pullf = pull --ff-only
 	diffs = diff --cached
+	ignore = update-index --skip-worktree
 [core]
 	editor = mg
 	excludesfile = /home/hoenig/.gitignore
