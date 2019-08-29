@@ -41,6 +41,7 @@ alias authors='git log | grep "Author: " | cut -d" " -f2,3 | sort | uniq -c | so
 alias compose='/opt/docker/run.sh "${@}"'
 alias lvtail='${GOPATH}/bin/logvis-tail --env prod --backend kafka ${@}'
 alias tree='tree -I .git ${@}'
+alias show-kube-all='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name --all-namespaces'
 
 # -- Functions
 function docker-cleanup {
