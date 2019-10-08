@@ -2,7 +2,7 @@
 	ui = true
 [user]
 	name = Seth Hoenig
-	email = hoenig@indeed.com
+	email = shoenig@hashicorp.com
 [github]
 	user = shoenig
 [alias]
@@ -11,11 +11,10 @@
 	dump = cat-file -p
 	st = status
 	cout = checkout
-	co = checkout
-	df = diff
 	pullf = pull --ff-only
 	diffs = diff --cached
 	ignore = update-index --skip-worktree
+	touched = diff-tree --no-commit-id --name-only -r
 [core]
 	editor = mg
 	excludesfile = /home/hoenig/.gitignore
