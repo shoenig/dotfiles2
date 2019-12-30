@@ -16,6 +16,9 @@ source /etc/bash_completion.d/git-prompt
 # -- Fancy prompt
 export PS1='[\[\033[0;37m\]$(hostname) \[\033[0;32m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[0;33m\]%s\[\033[0m\])")] $ '
 
+# -- Fancy term tabs
+export PROMPT_COMMAND=' echo -ne "\033]0;$(basename $(pwd))\007" '
+
 # -- Go stuff
 export GOROOT=/opt/google/go
 export PATH=${PATH}:${GOROOT}/bin
