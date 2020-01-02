@@ -1,0 +1,8 @@
+# This file should exist as
+#   ~/.config/pulse/default.pa
+
+.include /etc/pulse/default.pa
+
+update-sink-proplist alsa_output.pci-0000_09_00.1.hdmi-stereo-extra2 device.description="Headphones"
+update-sink-proplist alsa_output.pci-0000_0b_00.4.analog-stereo device.description="Google Max"
+update-sink-proplist alsa_output.usb-0c76_USB_PnP_Audio_Device-00.analog-stereo device.description="Ignore"
