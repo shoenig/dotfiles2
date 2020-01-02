@@ -38,13 +38,10 @@ alias sl='ls --color'
 alias xclip='xclip -selection c'
 alias gs='git status'
 alias diff='colordiff'
-alias tree='tree -a'
-alias cover-html='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
+alias coverage='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
 alias authors='git log | grep "Author: " | cut -d" " -f2,3 | sort | uniq -c | sort -nr'
 alias compose='/opt/docker/run.sh "${@}"'
-alias lvtail='${GOPATH}/bin/logvis-tail --env prod --backend kafka ${@}'
 alias tree='tree -I .git ${@}'
-alias show-kube-all='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name --all-namespaces'
 
 # -- Functions
 function docker-cleanup {
@@ -57,21 +54,25 @@ function docker-ps {
     docker ps -a --format "{{.Names}}\t{{.Status}}\t{{.Image}}"
 }
 
-function iclone {
-    group="${1}"
+function clone {
+    ns="${1}"
     project="${2}"
-    if [ -z "${group}" ]; then echo "format: 'iclone group project'" && return; fi
-    if [ -z "${project}" ]; then echo "format: 'iclone group project'" && return; fi
-    pushd ${GOPATH}/src/indeed/${group}
-    git clone "git@code.internal.com:${group}/${project}.git"
+    if [ -z "${ns}" ]; then echo "format: 'clone namespace project'" && return; fi
+    if [ -z "${project}" ]; then echo "format: 'clone namespace project'" && return; fi
+    dir="${GOPATH}/src/github.com/${ns}"
+    mkdir -p "${dir}"
+    pushd "${dir}"
+    git clone "git@github.com:${ns}/${project}.git"
     popd
 }
 
+# laptop only
 function power {
     pct=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}')
     echo ${pct}
 }
 
+# laptop only
 function temp {
     python -c "import sys; t = sys.argv[1]; print int(t)/1000" $(cat /sys/class/thermal/thermal_zone*/temp)
 }
