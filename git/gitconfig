@@ -17,7 +17,7 @@
 	touched = diff-tree --no-commit-id --name-only -r
 [core]
 	editor = mg
-	excludesfile = /home/hoenig/.gitignore
+	excludesfile = /home/shoenig/.gitignore
 [merge]
 	tool = mg
 [push]

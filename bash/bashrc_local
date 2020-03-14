@@ -25,9 +25,9 @@ export PATH=${PATH}:${GOROOT}/bin
 export GOPATH=${HOME}/go
 export PATH=${PATH}:${GOPATH}/bin
 export CDPATH=.\
-:${GOPATH}/src/indeed/systools\
-:${GOPATH}/src/indeed/gophers\
-:${GOPATH}/src/github.com/modprox
+:${GOPATH}/src/github.com/hashicorp\
+:${GOPATH}/src/gophers.dev/pkgs\
+:${GOPATH}/src/gophers.dev/cmds
 
 # -- Aliases
 alias mv='mv --interactive'
@@ -36,7 +36,6 @@ alias rm='rm --interactive'
 alias ls='ls --color'
 alias sl='ls --color'
 alias xclip='xclip -selection c'
-alias gs='git status'
 alias diff='colordiff'
 alias coverage='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
 alias authors='git log | grep "Author: " | cut -d" " -f2,3 | sort | uniq -c | sort -nr'
@@ -64,17 +63,6 @@ function clone {
     pushd "${dir}"
     git clone "git@github.com:${ns}/${project}.git"
     popd
-}
-
-# laptop only
-function power {
-    pct=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}')
-    echo ${pct}
-}
-
-# laptop only
-function temp {
-    python -c "import sys; t = sys.argv[1]; print int(t)/1000" $(cat /sys/class/thermal/thermal_zone*/temp)
 }
 
 function set-upstream {
