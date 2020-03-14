@@ -1,46 +1,24 @@
-
-;; Melpa Packages Setup
 (package-initialize)
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
-;; Disable Backups
-(setq backup-inhibited t)
-(setq auto-save-default nil)
-
-;; Opinionated Stuff
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
-
-;; Alias yes/no ->  y/n
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; Show Clock
-(setq display-time t
-      display-time-24hr-format t)
-(display-time)
-
-;; Aliases
-(defalias 'cr 'comment-region)
-(defalias 'uc 'uncomment-region)
-(defalias 'rs 'replace-string)
-
-;; No Startup Screen
 (custom-set-variables
- '(inhibit-startup-screen t))
+ '(custom-safe-themes
+   (quote
+    ("a1ced8afce71aa7c70297b79f18d9aaa1156dff14c3cb44eca84ebc84815a5af" default)))
+ '(package-selected-packages (quote (go-mode hcl-mode gnu-elpa-keyring-update))))
+(custom-set-faces)
 
-;; Highlight Matching Brackets
-(show-paren-mode t)
-(setq show-paren-delay 0)
-(setq show-paren-style 'mixed)
-(require 'paren)
-(set-face-background 'show-paren-match-face "#A31C1C")
-(set-face-foreground 'show-paren-match-face "#def")
-(set-face-foreground 'show-paren-mismatch-face "red")
-(set-face-attribute 'show-paren-mismatch-face nil
-                    :weight 'bold :underline t :overline nil :slant 'normal)
+(require 'package)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+;; Disable backup files
+(setq make-backup-files nil)
+
+;; Use ZenBurn theme always.
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'zenburn t)
+
+;; Disable the menubar (in CLI mode!)
+(menu-bar-mode -1)
+
+;; Highlight matching brackets
+(show-paren-mode 1)
