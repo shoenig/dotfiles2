@@ -38,7 +38,7 @@ alias sl='ls --color'
 alias xclip='xclip -selection c'
 alias diff='colordiff'
 alias coverage='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
-alias authors='git log | grep "Author: " | cut -d" " -f2,3 | sort | uniq -c | sort -nr'
+alias authors='git log | grep "Author: " | fields 2,3 | sort | uniq -c | sort -nr'
 alias compose='/opt/docker/run.sh "${@}"'
 alias tree='tree -I .git ${@}'
 
