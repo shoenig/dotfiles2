@@ -41,6 +41,9 @@ alias coverage='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp
 alias authors='git log | grep "Author: " | fields 2,3 | sort | uniq -c | sort -nr'
 alias compose='/opt/docker/run.sh "${@}"'
 alias tree='tree -I .git ${@}'
+alias ups='apt list --upgradable'
+alias nossh='ssh -i ~/.ssh/mykey.pem -o "UserKnownHostsFile /dev/null"'
+alias noscp='scp -i ~/.ssh/mykey.pem -o "UserKnownHostsFile /dev/null"'
 
 # -- Functions
 function docker-cleanup {
