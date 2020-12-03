@@ -73,3 +73,9 @@ function set-upstream {
     git branch --set-upstream-to="origin/${b}" "${b}"
     echo "set upstream to origin/${b}"
 }
+
+function prune-branches {
+    git fetch
+    git remote prune origin
+    git branch --merged origin/master | grep -v 'master$' | xargs git branch -d
+}
