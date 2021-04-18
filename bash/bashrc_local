@@ -77,5 +77,5 @@ function set-upstream {
 function prune-branches {
     git fetch
     git remote prune origin
-    git branch --merged origin/master | grep -v 'master$' | xargs git branch -d
+    git branch --merged origin/main | grep -v 'main$' | xargs git branch -d
 }
