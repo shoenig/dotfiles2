@@ -1,0 +1,66 @@
+# https://starship.rs/config
+# ~/.config/starship.toml
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[directory]
+style = "white"
+truncation_length = 3
+truncate_to_repo = true
+read_only = ""
+read_only_style = "red"
+home_symbol = "~"
+
+[golang]
+disabled = true
+
+[cmake]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[java]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[terraform]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[git_branch]
+symbol = ""
+always_show_remote = false
+
+[git_commit]
+only_detached = true
+tag_disabled = false
+tag_symbol = " | "
+
+[git_status]
+modified = "m"
+deleted = "d"
+staged = "s"
+renamed = "r"
+untracked = "u"
+style = "red"
+
+[git_state]
+rebase = "!REBASE"
+merge = "!MERGE"
+revert = "!REVERT"
+cherry_pick = "!PICKING"
+bisect = "!BISECT"
+
