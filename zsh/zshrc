@@ -1,0 +1,62 @@
+
+# -- Use mg as editor
+export EDITOR=/usr/bin/mg
+
+# -- Starship prompt
+eval "$(starship init zsh)"
+
+# -- Go stuff
+export GOROOT=/usr/local/go
+export PATH=${PATH}:${GOROOT}/bin
+export GOPATH=${HOME}/Documents/go
+export PATH=${PATH}:${GOPATH}/bin
+export CDPATH=.\
+:${GOPATH}/src/github.com/hashicorp\
+:${GOPATH}/src/gophers.dev/pkgs\
+:${GOPATH}/src/gophers.dev/cmds
+# -- Aliases
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -i'
+alias ls='ls -G'
+alias sl='ls -G'
+alias ll='ls -Glha'
+alias tree='tree -I .git ${@}'
+alias authors='git log | grep "Author: " | fields 2,3 | sort | uniq -c | sort -nr'
+alias compose='/opt/docker/run.sh "${@}"'
+alias coverage='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
+alias nossh='ssh -i ~/.ssh/mykey.pem -o "UserKnownHostsFile /dev/null"'
+alias noscp='scp -i ~/.ssh/mykey.pem -o "UserKnownHostsFile /dev/null"'
+
+# -- Suffixes
+alias -s txt=mg
+
+# -- Functions
+function docker-cleanup {
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+    docker volume rm $(docker volume ls -q -f 'dangling=true') 2>/dev/null
+}
+
+function docker-ps {
+    docker ps -a --format "{{.Names}}\t{{.Status}}\t{{.Image}}"
+}
+
+function clone {
+    ns="${1}"
+    project="${2}"
+    if [ -z "${ns}" ]; then echo "format: 'clone namespace project'" && return; fi
+    if [ -z "${project}" ]; then echo "format: 'clone namespace project'" && return; fi
+    dir="${GOPATH}/src/github.com/${ns}"
+    mkdir -p "${dir}"
+    pushd "${dir}"
+    git clone "git@github.com:${ns}/${project}.git"
+    popd
+}
+
+function set-upstream {
+    b=$(git rev-parse --abbrev-ref HEAD)
+    git branch --set-upstream-to="origin/${b}" "${b}"
+    echo "set upstream to origin/${b}"
+}
+
