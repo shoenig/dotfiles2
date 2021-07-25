@@ -11,12 +11,18 @@ truncation_length = 3
 truncate_to_repo = true
 read_only = ""
 read_only_style = "red"
-home_symbol = "~/"
+home_symbol = "~"
 
 [cmd_duration]
 format = "[$duration]($style)"
 min_time = 1_000
 style = "yellow"
+
+[kotlin]
+disabled = true
+
+[package]
+disabled = true
 
 [golang]
 disabled = true
