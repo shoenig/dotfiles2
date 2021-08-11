@@ -5,13 +5,16 @@ export EDITOR=/usr/bin/mg
 # -- Starship prompt
 eval "$(starship init zsh)"
 
+# -- Git autocomplete
+autoload -Uz compinit && compinit
+
 # -- Go stuff
 export GOROOT=/usr/local/go
 export PATH=${PATH}:${GOROOT}/bin
 export GOPATH=${HOME}/Documents/go
 export PATH=${PATH}:${GOPATH}/bin
 export CDPATH=.\
-:${GOPATH}/src/github.com/hashicorp\
+:${HOME}/Documents/ATG\
 :${GOPATH}/src/gophers.dev/pkgs\
 :${GOPATH}/src/gophers.dev/cmds
 # -- Aliases
@@ -27,6 +30,10 @@ alias compose='/opt/docker/run.sh "${@}"'
 alias coverage='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
 alias nossh='ssh -i ~/.ssh/mykey.pem -o "UserKnownHostsFile /dev/null"'
 alias noscp='scp -i ~/.ssh/mykey.pem -o "UserKnownHostsFile /dev/null"'
+
+# -- Java stuff
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # -- Suffixes
 alias -s txt=mg
