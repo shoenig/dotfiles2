@@ -8,6 +8,9 @@ eval "$(starship init zsh)"
 # -- Git autocomplete
 autoload -Uz compinit && compinit
 
+# -- CLI comments
+setopt interactivecomments
+
 # -- Go stuff
 export GOROOT=/usr/local/go
 export PATH=${PATH}:${GOROOT}/bin
