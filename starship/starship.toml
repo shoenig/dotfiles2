@@ -1,6 +1,15 @@
 # https://starship.rs/config
 # ~/.config/starship.toml
 
+format = """
+$directory\
+$cmd_duration\
+$character\
+$git_branch\
+$git_commit\
+$git_status\
+$git_state"""
+
 [character]
 success_symbol = "[➜](bold green)"
 error_symbol = "[➜](bold red)"
@@ -17,39 +26,6 @@ home_symbol = "~"
 format = "[$duration]($style)"
 min_time = 1_000
 style = "yellow"
-
-[kotlin]
-disabled = true
-
-[package]
-disabled = true
-
-[golang]
-disabled = true
-
-[cmake]
-disabled = true
-
-[docker_context]
-disabled = true
-
-[java]
-disabled = true
-
-[kubernetes]
-disabled = true
-
-[memory_usage]
-disabled = true
-
-[nodejs]
-disabled = true
-
-[terraform]
-disabled = true
-
-[vagrant]
-disabled = true
 
 [git_branch]
 symbol = ""
@@ -74,3 +50,4 @@ merge = "!MERGE"
 revert = "!REVERT"
 cherry_pick = "!PICKING"
 bisect = "!BISECT"
+
