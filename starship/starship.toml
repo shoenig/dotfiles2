@@ -4,12 +4,12 @@
 format = """
 $directory\
 $cmd_duration\
-$line_break\
-$character\
 $git_branch\
 $git_commit\
 $git_status\
-$git_state
+$git_state\
+$line_break\
+$character
 """
 
 [character]
