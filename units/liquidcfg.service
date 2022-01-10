@@ -1,0 +1,11 @@
+[Unit]
+Description=AIO startup service
+
+[Service]
+Type=oneshot
+ExecStart=liquidctl -d 2 set logo color fixed ffffff
+ExecStart=liquidctl -d 2 set ring color fixed ffff00
+
+[Install]
+WantedBy=default.target
+
