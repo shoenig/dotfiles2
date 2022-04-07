@@ -1,0 +1,8 @@
+# ~/.config/go
+
+GOOS=linux
+GOARCH=amd64
+GOROOT=/opt/google/go
+GOPATH=/home/shoenig/.go
+GOPRIVATE=github.com/hashicorp
+GOBIN=/opt/bin
