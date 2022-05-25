@@ -7,6 +7,11 @@
 #	. ~/.bashrc_local
 # fi
 
+# -- Nomad config
+NOMAD_LICENSE_PATH=/etc/nomad.d/nomad.hclic
+NOMAD_TEST_LOG_LEVEL=OFF
+CI=1
+
 # -- Use mg as editor
 export EDITOR=/usr/bin/mg
 
@@ -14,20 +19,17 @@ export EDITOR=/usr/bin/mg
 source /etc/bash_completion.d/git-prompt
 
 # -- Fancy prompt
-export PS1='[\[\033[0;37m\]$(hostname) \[\033[0;32m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[0;33m\]%s\[\033[0m\])")] $ '
+eval "$(starship init bash)"
 
-# -- Fancy term tabs
-export PROMPT_COMMAND=' echo -ne "\033]0;$(basename $(pwd))\007" '
+# -- Custom binaries
+export PATH=${PATH}:/opt/bin
+export PATH=${PATH}:/opt/google/go/bin
 
 # -- Go stuff
-export GOROOT=/opt/google/go
-export PATH=${PATH}:${GOROOT}/bin
-export GOPATH=${HOME}/go
-export PATH=${PATH}:${GOPATH}/bin
 export CDPATH=.\
-:${GOPATH}/src/github.com/hashicorp\
-:${GOPATH}/src/gophers.dev/pkgs\
-:${GOPATH}/src/gophers.dev/cmds
+:${HOME}/Documents/gopath/pkgs\
+:${HOME}/Documents/gopath/cmds\
+:${HOME}/Work/go
 
 # -- Aliases
 alias mv='mv --interactive'
@@ -42,14 +44,23 @@ alias authors='git log | grep "Author: " | fields 2,3 | sort | uniq -c | sort -n
 alias compose='/opt/docker/run.sh "${@}"'
 alias tree='tree -I .git ${@}'
 alias ups='apt list --upgradable'
-alias nossh='ssh -i ~/.ssh/mykey.pem -o "UserKnownHostsFile /dev/null"'
-alias noscp='scp -i ~/.ssh/mykey.pem -o "UserKnownHostsFile /dev/null"'
+alias noamd=nomad
+alias naomd=nomad
+alias napi='nomad operator api ${@}'
+alias nossh='ssh -i ~/.ssh/shoenig-uses-aws.pem -o "UserKnownHostsFile /dev/null"'
+alias noscp='scp -i ~/.ssh/shoenig-uses-aws.pem -o "UserKnownHostsFile /dev/null"'
 
 # -- Functions
+function upgrades {
+    sudo apt update
+    sudo apt upgrade
+}
+
 function docker-cleanup {
     docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
     docker volume rm $(docker volume ls -q -f 'dangling=true') 2>/dev/null
+    docker container prune --force
 }
 
 function docker-ps {
@@ -78,4 +89,8 @@ function prune-branches {
     git fetch
     git remote prune origin
     git branch --merged origin/main | grep -v 'main$' | xargs git branch -d
+}
+
+function sudo-test {
+    sudo -E env PATH=$PATH go test -v -run "${1}"
 }
