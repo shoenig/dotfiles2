@@ -12,8 +12,8 @@ NOMAD_LICENSE_PATH=/etc/nomad.d/nomad.hclic
 NOMAD_TEST_LOG_LEVEL=OFF
 CI=1
 
-# -- Use mg as editor
-export EDITOR=/usr/bin/mg
+# -- Use hx as editor
+export EDITOR=/opt/bin/hx
 
 # -- Git bash completion
 source /etc/bash_completion.d/git-prompt
@@ -26,10 +26,7 @@ export PATH=${PATH}:/opt/bin
 export PATH=${PATH}:/opt/google/go/bin
 
 # -- Go stuff
-export CDPATH=.\
-:${HOME}/Documents/gopath/pkgs\
-:${HOME}/Documents/gopath/cmds\
-:${HOME}/Work/go
+export CDPATH=.:${HOME}/Go
 
 # -- Aliases
 alias mv='mv --interactive'
