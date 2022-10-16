@@ -16,9 +16,9 @@
 	ignore = update-index --skip-worktree
 	touched = diff-tree --no-commit-id --name-only -r
 [core]
-	editor = mg
+	editor = hx
 	excludesfile = /home/shoenig/.gitignore
 [merge]
-	tool = mg
+	tool = hx
 [push]
 	default = current
