@@ -1,5 +1,14 @@
 # belongs in ~/.config/helix/config.toml
 # probably want Go LSP; go install golang.org/x/tools/gopls@latest
 
-theme = "autumn"
+theme = "gruvbox"
+
+[editor]
+true-color = true
+rulers = [80]
+bufferline = "never"
+
+[keys.normal]
+C-a = "goto_line_start"
+C-e = "goto_line_end"
 
