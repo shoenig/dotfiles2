@@ -17,6 +17,24 @@ return {
     },
   },
 
+  keys = {
+    {
+      key = 't',
+      mods = 'CTRL',
+      action = wezterm.action.SpawnTab 'CurrentPaneDomain',
+    },
+    {
+      key = '[',
+      mods = 'CTRL',
+      action = wezterm.action.ActivateTabRelative(-1),
+    },
+    {
+      key = ']',
+      mods = 'CTRL',
+      action = wezterm.action.ActivateTabRelative(1),
+    },
+  },
+
   font = wezterm.font 'Berkeley Mono',
   font_size = 15,
 
