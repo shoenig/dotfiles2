@@ -3,7 +3,6 @@
 
 format = """
 $directory\
-$cmd_duration\
 $git_branch\
 $git_commit\
 $git_status\
@@ -13,7 +12,7 @@ $character
 """
 
 [character]
-success_symbol = "[➜](bold green)"
+success_symbol = "[➜](bold white)"
 error_symbol = "[➜](bold red)"
 
 [directory]
@@ -23,11 +22,6 @@ truncate_to_repo = true
 read_only = ""
 read_only_style = "red"
 home_symbol = "~"
-
-[cmd_duration]
-format = "[$duration]($style)"
-min_time = 1_000
-style = "yellow"
 
 [git_branch]
 symbol = ""
@@ -52,4 +46,3 @@ merge = "!MERGE"
 revert = "!REVERT"
 cherry_pick = "!PICKING"
 bisect = "!BISECT"
-
