@@ -1,9 +1,10 @@
-# .config/wezterm/wezterm.lua
+-- .config/wezterm/wezterm.lua
 
 local wezterm = require 'wezterm'
 
 return {
   default_prog = { '/bin/bash', '-l'},
+  audible_bell = "Disabled",
 
   initial_rows = 40,
   initial_cols = 120,
