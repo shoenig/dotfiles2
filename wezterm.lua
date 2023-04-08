@@ -3,6 +3,7 @@
 local wezterm = require 'wezterm'
 
 return {
+  check_for_updates = false,
   default_prog = { '/bin/bash', '-l'},
   audible_bell = "Disabled",
 
