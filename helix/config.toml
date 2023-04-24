@@ -1,7 +1,9 @@
 # belongs in ~/.config/helix/config.toml
 # probably want Go LSP; go install golang.org/x/tools/gopls@latest
 
-theme = "gruvbox"
+theme = "gruvbox" 
+# darcula 
+# sonokai
 
 [editor]
 true-color = true
@@ -12,7 +14,7 @@ bufferline = "never"
 C-a = "goto_line_start"
 C-e = "goto_line_end"
 C-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"
+C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 [keys.insert]
 C-a = "goto_line_start"
