@@ -21,6 +21,9 @@ source /etc/bash_completion.d/git-prompt
 # -- Fancy prompt
 eval "$(starship init bash)"
 
+# -- Mosh
+export MOSH_SERVER_NETWORK_TMOUT=3600
+
 # -- Custom binaries
 export PATH=${PATH}:/opt/bin
 export PATH=${PATH}:/opt/google/go/bin
