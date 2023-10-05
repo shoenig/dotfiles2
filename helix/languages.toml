@@ -1,0 +1,12 @@
+# Helix Language Configs
+# Belongs in ~/.config/helix/languages.toml
+
+[[language]]
+name = "go"
+formatter = { command = "goimports" }
+config = { analyses = { "unusedparams" = true }, staticcheck = true }
+
+[[language]]
+name = "hcl"
+auto-format = true
+formatter = { command = "hclfmt", args = [] }
