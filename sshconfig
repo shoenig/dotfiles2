@@ -1,0 +1,33 @@
+# ssh-keygen -t ed25519 -a 100
+# https://security.stackexchange.com/a/144044
+
+Host nyc-dns
+        HostName 161.35.15.214
+        User ubuntu
+
+Host diablo
+        HostName fd7a:115c:a1e0:ab12:4843:cd96:6258:1d31
+
+Host frost
+        HostName fd7a:115c:a1e0:ab12:4843:cd96:6253:c41b
+
+Host fossil
+        HostName fd7a:115c:a1e0:ab12:4843:cd96:625a:995a
+
+Host nuc10
+        HostName fd7a:115c:a1e0::8990:4252
+
+Host *.amazonaws.com
+        User ubuntu
+        ForwardAgent no
+        StrictHostKeyChecking no
+        UserKnownHostsFile /dev/null
+        IdentityFile ~/.ssh/shoenig-uses-aws.pem
+        IdentitiesOnly yes
+        LogLevel ERROR
+        ServerAliveInterval 120
+
+Host *
+        User shoenig
+        UseKeychain yes
+        AddKeysToAgent yes
