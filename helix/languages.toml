@@ -4,7 +4,6 @@
 [[language]]
 name = "go"
 formatter = { command = "goimports" }
-config = { analyses = { "unusedparams" = true }, staticcheck = true }
 
 [[language]]
 name = "hcl"
