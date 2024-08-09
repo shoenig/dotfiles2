@@ -1,5 +1,6 @@
 # belongs in ~/.config/helix/config.toml
 # probably want Go LSP; go install golang.org/x/tools/gopls@latest
+# probably want Go imports; go install golang.org/x/tools/cmd/goimports@latest
 
 theme = "sonokai"
 
