@@ -1,0 +1,13 @@
+# Belongs in ~/.config/ghostty/config
+# https://ghostty.org
+
+font-size = 15
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+window-height = 60
+window-width = 170
+
+keybind = ctrl+[=previous_tab
+keybind = ctrl+]=next_tab
+
