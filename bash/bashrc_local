@@ -1,86 +1,40 @@
-# Personal bashrc things
-
 # 1) This file should exist as ~/.bashrc_local
 # 2) Copy this to ~/.bashrc
 #
 # if [[ -r ~/.bashrc_local ]]; then
-#	. ~/.bashrc_local
+#      . ~/.bashrc_local
 # fi
 
-# -- Nomad config
-NOMAD_LICENSE_PATH=/etc/nomad.d/nomad.hclic
-NOMAD_TEST_LOG_LEVEL=OFF
-CI=1
+# -- SHELL
+export SHELL=/opt/homebrew/bin/bash
 
-# -- Use hx as editor
-export EDITOR=/opt/bin/hx
+# -- PATH additions
+export PATH=${HOME}/.bin:${PATH}
+export PATH=/opt/homebrew/bin:${PATH}
 
-# -- Git bash completion
-source /etc/bash_completion.d/git-prompt
-
-# -- Fancy prompt
+# -- Setup starship
 eval "$(starship init bash)"
 
-# -- Mosh
-export MOSH_SERVER_NETWORK_TMOUT=3600
+# -- Git completion
+source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 
-# -- Custom binaries
-export PATH=${PATH}:/opt/bin
-export PATH=${PATH}:/opt/google/go/bin
+# -- Helix as EDITOR
+export EDITOR=${HOME}/.bin/hx
 
-# -- Go stuff
-export CDPATH=.:${HOME}/Go
+# -- Go environment
+export GOPATH=${HOME}/.go
+export GOBIN=${HOME}/.bin
+export GOMAXPROCS=8
 
 # -- Aliases
-alias mv='mv --interactive'
-alias cp='cp --interactive'
-alias rm='rm --interactive'
-alias ls='ls --color'
-alias sl='ls --color'
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -i'
+alias ls='ls -G'
+alias sl='ls -G'
+alias ll='ls -lha'
 alias gap='git add -p'
-alias cat='/usr/bin/bat'
-alias pcat='/usr/bin/bat -p'
-alias xclip='xclip -selection c'
-alias diff='colordiff'
-alias coverage='go test -coverprofile=/tmp/cover.out && go tool cover -html=/tmp/cover.out'
-alias authors='git log | grep "Author: " | fields 2,3 | sort | uniq -c | sort -nr'
-alias compose='/opt/docker/run.sh "${@}"'
 alias tree='tree -I .git ${@}'
-alias ups='apt list --upgradable'
-alias noamd=nomad
-alias naomd=nomad
-alias napi='nomad operator api ${@}'
-alias nossh='ssh -i ~/.ssh/shoenig-uses-aws.pem -o "UserKnownHostsFile /dev/null"'
-alias noscp='scp -i ~/.ssh/shoenig-uses-aws.pem -o "UserKnownHostsFile /dev/null"'
-
-# -- Functions
-function upgrades {
-    sudo apt update
-    sudo apt upgrade
-}
-
-function docker-cleanup {
-    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
-    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
-    docker volume rm $(docker volume ls -q -f 'dangling=true') 2>/dev/null
-    docker container prune --force
-}
-
-function docker-ps {
-    docker ps -a --format "{{.Names}}\t{{.Status}}\t{{.Image}}"
-}
-
-function clone {
-    ns="${1}"
-    project="${2}"
-    if [ -z "${ns}" ]; then echo "format: 'clone namespace project'" && return; fi
-    if [ -z "${project}" ]; then echo "format: 'clone namespace project'" && return; fi
-    dir="${GOPATH}/src/github.com/${ns}"
-    mkdir -p "${dir}"
-    pushd "${dir}"
-    git clone "git@github.com:${ns}/${project}.git"
-    popd
-}
 
 function set-upstream {
     b=$(git rev-parse --abbrev-ref HEAD)
@@ -88,12 +42,7 @@ function set-upstream {
     echo "set upstream to origin/${b}"
 }
 
-function prune-branches {
-    git fetch
-    git remote prune origin
-    git branch --merged origin/main | grep -v 'main$' | xargs git branch -d
-}
-
-function sudo-test {
-    sudo -E env PATH=$PATH go test -v -run "${1}"
+function gocoverage () {
+    t="/tmp/go-cover.$$.tmp"
+    go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
 }
