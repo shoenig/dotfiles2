@@ -46,3 +46,10 @@ function gocoverage () {
     t="/tmp/go-cover.$$.tmp"
     go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
 }
+
+function ask() {
+    curl -s http://loki.lan:11434/api/generate -d "{ \
+    \"model\": \"llama3.2\", \
+    \"prompt\":\"${@}\", \"stream\": false \
+    }" | jq -r .response
+}
