@@ -49,7 +49,7 @@ function gocoverage () {
 
 function ask() {
     curl -s http://loki.lan:11434/api/generate -d "{ \
-    \"model\": \"llama3.2\", \
+    \"model\": \"gpt-oss:20b\", \
     \"prompt\":\"${@}\", \"stream\": false \
     }" | jq -r .response
 }
